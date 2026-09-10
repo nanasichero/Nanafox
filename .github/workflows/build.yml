@@ -14,9 +14,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Build with Gradle Wrapper
+    - name: Setup Gradle Version
+      run: gradle wrapper --gradle-version 8.5
+
+    - name: Build APK
       run: |
-        gradle wrapper --gradle-version 8.5
         chmod +x gradlew
         ./gradlew assembleDebug
 
@@ -25,6 +27,7 @@ jobs:
       with:
         name: browser-apk
         path: app/build/outputs/apk/debug/app-debug.apk
+
 
 
 
