@@ -14,8 +14,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Run gradle wrapper --gradle-version 8.5
-      run: gradle wrapper --gradle-version 8.5
+    - name: Download and Use Gradle 8.5
+      run: |
+        wget https://services.gradle.org/distributions/gradle-8.5-bin.zip
+        unzip -q gradle-8.5-bin.zip
+        ./gradle-8.5/bin/gradle wrapper --gradle-version 8.5
 
     - name: Build APK
       run: |
